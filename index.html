@@ -18120,6 +18120,149 @@ body {
             color: #fff;
             margin: 0 5px;
         }
+
+    .carousel {
+        margin-top: 40px;
+        max-width: 100%;
+        margin-left: auto;
+        margin-right: auto;
+        border-radius: 15px;
+        overflow: hidden;
+        box-shadow: 0 8px 15px rgba(0, 0, 0, 0.2);
+    }
+
+    .carousel-item {
+        transition: transform 0.7s ease, opacity 0.7s ease;
+    }
+
+    .carousel-inner {
+        border-radius: 15px;
+    }
+
+    .carousel img {
+        width: 100%;
+        height: auto;
+        border-radius: 15px;
+        box-shadow: 0 5px 20px rgba(0, 0, 0, 0.3);
+    }
+
+    .carousel-caption {
+        background-color: rgba(0, 0, 0, 0.6);
+        padding: 15px;
+        border-radius: 10px;
+        max-width: 75%;
+        margin: auto;
+        color: white;
+    }
+
+    .carousel-caption h3 {
+        font-size: 2rem;
+        font-weight: bold;
+        margin-bottom: 10px;
+    }
+
+    .carousel-caption p {
+        font-size: 1.2rem;
+        margin-bottom: 0;
+    }
+
+    .carousel-control-prev-icon,
+    .carousel-control-next-icon {
+        background-color: #c70017;
+        padding: 20px;
+        border-radius: 50%;
+    }
+
+    .carousel-control-prev-icon {
+        background-image: url('https://cdn-icons-png.flaticon.com/512/271/271220.png');
+        background-size: contain;
+    }
+
+    .carousel-control-next-icon {
+        background-image: url('https://cdn-icons-png.flaticon.com/512/271/271228.png');
+        background-size: contain;
+    }
+
+    .carousel-control-prev,
+    .carousel-control-next {
+        width: 50px;
+        height: 50px;
+        top: 50%;
+        transform: translateY(-50%);
+    }
+
+.playlist {
+    padding: 25px;
+    background: linear-gradient(135deg, #c70017, #2c3e50, #ffffff); /* Gradient: Red, Black, White */
+    border-radius: 15px;
+    box-shadow: 0 6px 18px rgba(0, 0, 0, 0.2);
+    transition: all 0.3s ease-in-out;
+    height: auto;
+}
+
+.playlist-title {
+    font-size: 26px;
+    font-weight: bold;
+    color: #fff;
+    margin-bottom: 20px;
+    text-align: center;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+.play-item {
+    font-size: 18px;
+    color: #ecf0f1;
+    margin: 12px 0;
+    padding: 12px 18px;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.play-item:hover {
+    background-color: #c70017; 
+    color: #fff;
+    transform: scale(1.05);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.play-item.active {
+    background-color: #2ecc71;
+    color: white;
+}
+
+@media (max-width: 767px) {
+    .container {
+        padding-left: 15px;
+        padding-right: 15px;
+    }
+
+    .playlist {
+        padding: 20px;
+    }
+
+    .playlist-title {
+        font-size: 22px;
+    }
+
+    .play-item {
+        font-size: 16px;
+    }
+}
+
+.play-info {
+    text-align: center;
+    font-size: 18px;
+    color: #7f8c8d;
+    font-weight: bold;
+    margin-top: 10px;
+}
+
 </style>
 <body ng-app="app">
     <noscript>
@@ -18144,33 +18287,190 @@ body {
                         <div class="border border-primary p-4 mb-4">
                             <div id="countdown" class="countdown-timer h5 mb-4"></div>
                         </div>
-                        <div class="mp3-player">
-                            <!-- Track Image -->
-                            <div class="player-image">
-                                <img id="track-image" src="img/track1.jpg" alt="Track Image" class="track-image" />
+
+                        <!-- Carousel -->
+                        <div id="carouselStrayKids" class="carousel slide" data-ride="carousel">
+                            <div class="carousel-inner">
+                                <!-- Slide 1 -->
+                                <div class="carousel-item active">
+                                    <div class="row">
+                                        <div class="col-md-6">
+                                            <img src="img/Bang Chan-Photoroom.png" class="d-block w-100" alt="Bang Chan">
+                                        </div>
+                                        <div class="col-md-6 d-flex align-items-center justify-content-center">
+                                            <div>
+                                                <br>
+                                                <h3>Bangchan</h3>
+                                                <p>Leader, Lead Vocalist, Lead Dancer, <br> Rapper, Producer</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!-- Slide 2 -->
+                                <div class="carousel-item">
+                                    <div class="row">
+                                        <div class="col-md-6">
+                                            <img src="img/Minho-Photoroom.png" class="d-block w-100" alt="Lee Know">
+                                        </div>
+                                        <div class="col-md-6 d-flex align-items-center justify-content-center">
+                                            <div>
+                                                <br>
+                                                <h3>Lee Know</h3>
+                                                <p>Main Dancer, Vocalist, Rapper</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!-- Slide 3 -->
+                                <div class="carousel-item">
+                                    <div class="row">
+                                        <div class="col-md-6">
+                                            <img src="img/Changbin-Photoroom.png" class="d-block w-100" alt="Changbin">
+                                        </div>
+                                        <div class="col-md-6 d-flex align-items-center justify-content-center">
+                                            <div>
+                                                <br>
+                                                <h3>Changbin</h3>
+                                                <p>Main Rapper, Vocalist, Producer</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!-- Slide 4 -->
+                                <div class="carousel-item">
+                                    <div class="row">
+                                        <div class="col-md-6">
+                                            <img src="img/Hyunjin-Photoroom.png" class="d-block w-100" alt="Hyunjin">
+                                        </div>
+                                        <div class="col-md-6 d-flex align-items-center justify-content-center">
+                                            <div>
+                                                <br>
+                                                <h3>Hyunjin</h3>
+                                                <p>Main Dancer, Lead Rapper, Visual</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!-- Slide 5 -->
+                                <div class="carousel-item">
+                                    <div class="row">
+                                        <div class="col-md-6">
+                                            <img src="img/Han-Photoroom.png" class="d-block w-100" alt="Han">
+                                        </div>
+                                        <div class="col-md-6 d-flex align-items-center justify-content-center">
+                                            <div>
+                                                <br>
+                                                <h3>Han</h3>
+                                                <p>Main Rapper, Lead Vocalist, Producer</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!-- Slide 6 -->
+                                <div class="carousel-item">
+                                    <div class="row">
+                                        <div class="col-md-6">
+                                            <img src="img/Felix-Photoroom.png" class="d-block w-100" alt="Felix">
+                                        </div>
+                                        <div class="col-md-6 d-flex align-items-center justify-content-center">
+                                            <div>
+                                                <br>
+                                                <h3>Felix</h3>
+                                                <p>Lead Dancer, Lead Rapper</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!-- Slide 7 -->
+                                <div class="carousel-item">
+                                    <div class="row">
+                                        <div class="col-md-6">
+                                            <img src="img/Seungmin-Photoroom.png" class="d-block w-100" alt="Seungmin">
+                                        </div>
+                                        <div class="col-md-6 d-flex align-items-center justify-content-center">
+                                            <div>
+                                                <br>
+                                                <h3>Seungmin</h3>
+                                                <p>Main Vocalist</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!-- Slide 8 -->
+                                <div class="carousel-item">
+                                    <div class="row">
+                                        <div class="col-md-6">
+                                            <img src="img/IN-Photoroom.png" class="d-block w-100" alt="I.N">
+                                        </div>
+                                        <div class="col-md-6 d-flex align-items-center justify-content-center">
+                                            <div>
+                                                <br>
+                                                <h3>I.N</h3>
+                                                <p>Vocalist, Maknae</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
                             </div>
 
-                            <!-- Controls -->
-                            <div class="player-controls">
-                                <button id="prev-track" class="control-button">⏮️</button>
-                                <button id="play-pause" class="control-button">⏯️</button>
-                                <button id="next-track" class="control-button">⏭️</button>
-                            </div>
+                            <!-- Carousel Controls -->
+                                <a class="carousel-control-prev" href="#carouselStrayKids" role="button" data-slide="prev">
+                                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                                    <span class="sr-only">Previous</span>
+                                </a>
+                                <a class="carousel-control-next" href="#carouselStrayKids" role="button" data-slide="next">
+                                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                                    <span class="sr-only">Next</span>
+                                </a>
+                        </div>
 
-                            <!-- Track Information -->
-                            <div class="track-info">
-                                <p id="current-track" class="text-uppercase">Stray Kids</p>
+                        <div class="container mt-5">
+                            <div class="row">
+                                <!-- MP3 Player -->
+                                <div class="col-md-6">
+                                    <div class="mp3-player">
+                                        <!-- Track Image -->
+                                        <div class="player-image">
+                                            <img id="track-image" src="img/track1.jpg" alt="Track Image" class="track-image img-fluid" />
+                                        </div>
+                        
+                                        <!-- Controls -->
+                                        <div class="player-controls">
+                                            <button id="prev-track" class="control-button">⏮️</button>
+                                            <button id="play-pause" class="control-button">⏯️</button>
+                                            <button id="next-track" class="control-button">⏭️</button>
+                                        </div>
+                        
+                                        <!-- Track Information -->
+                                        <div class="track-info">
+                                            <p id="current-track" class="text-uppercase">Stray Kids</p>
+                                        </div>
+                        
+                                        <!-- Progress Bar -->
+                                        <div class="progress-container">
+                                            <span id="elapsed-time" class="elapsed-time">0:00</span>
+                                            <input type="range" id="progress-bar" class="progress-bar" value="0" max="100" step="1">
+                                            <span id="total-time" class="total-time">0:00</span>
+                                        </div>
+                        
+                                        <!-- Hidden Audio Player -->
+                                        <audio id="audio-player"></audio>
+                                    </div>
+                                </div>
+                        
+                                <!-- Playlist -->
+                                <div class="col-md-6">
+                                    <br>
+                                    <div class="playlist">
+                                        <h3 class="playlist-title">playlist</h3>
+                                        <ul id="play-list">
+                                            <li data-index="0" class="play-item">Mountains</li>
+                                            <li data-index="1" class="play-item">Walkin on water</li>
+                                            <li data-index="2" class="play-item">Giant</li>
+                                        </ul>
+                                    </div>
+                                </div>
                             </div>
-
-                            <!-- Progress Bar -->
-                            <div class="progress-container">
-                                <span id="elapsed-time" class="elapsed-time">0:00</span>
-                                <input type="range" id="progress-bar" class="progress-bar" value="0" max="100" step="1">
-                                <span id="total-time" class="total-time">0:00</span>
-                            </div>
-                            
-                            <!-- Hidden Audio Player -->
-                            <audio id="audio-player"></audio>
                         </div>
                     </div>
                 </div>
@@ -18204,8 +18504,10 @@ body {
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.1/umd/popper.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.6.0/js/bootstrap.min.js"></script>
     <script src="//cdn.jsdelivr.net/npm/objectFitPolyfill@2.3.5/dist/objectFitPolyfill.min.js"></script>
-    <script src="/assets/fbe0d554/javascripts/theme.js"></script>
-
+    <script src="/assets/fbe0d554/javascripts/theme.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.1/umd/popper.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.6.0/js/bootstrap.min.js"></script>
+    
     <!-- Countdown Timer -->
     <script>
         var countdownDate = new Date("July 30, 2025 00:00:00").getTime();
@@ -18331,4 +18633,13 @@ body {
         // Initialize with the first track
         updateTrack();
     </script>
+
+    <!-- Carousel -->
+        <script>
+            $(document).ready(function () {
+        $('#carouselStrayKids').carousel({
+            interval: 0
+        });
+        });
+        </script>
 </body>
